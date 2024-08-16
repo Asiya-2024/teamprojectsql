@@ -45,7 +45,7 @@ INNER JOIN propertydetails pd ON p.PropertyID = pd.PropertyID
 WHERE   pd.YearBuilt = (SELECT MIN(YearBuilt)
         FROM propertydetails);
         
-        -- Task 8
+        -- Ticket 8
 SELECT 
 p.PropertyID,Address,Bathrooms
 FROM
@@ -58,18 +58,18 @@ AVG(Bathrooms)
 FROM
 propertydetails);
 
--- Task 9
+-- Ticket 9
 
 select * from propertyamenityassignments;
 select count(PropertyID) from propertyamenities;
  
 select count(PropertyID) from propertyamenityassignments paa where paa.AmenityID=(select pa.AmenityID from propertyamenities pa where AmenityName='pool');
 
--- Task 10
+-- Ticket 10
 
 select a.AmenityName from propertyamenities a where (select count(*) from propertyamenityassignments p where p.AmenityID=a.AmenityID)>3;
 
--- Task 11
+-- Ticket 11
 
 SELECT 
     Address, ListingPrice, Bedrooms
@@ -86,7 +86,7 @@ WHERE
         FROM
             properties);
             
--- Task 12
+-- Ticket 12
 
 
 select distinct FirstName,LastName from clients,propertydetails where ClientID in (select ClientID from transactions where SalePrice>500000) and Bedrooms>3;          
